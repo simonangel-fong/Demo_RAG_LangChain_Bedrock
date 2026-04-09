@@ -1,7 +1,7 @@
 ```sh
-terraform -chdir=infra init -backend-config=backend.config -reconfigure
-terraform -chdir=infra fmt && terraform -chdir=infra validate
-terraform -chdir=infra apply -auto-approve
+terraform -chdir=infra/demo init -backend-config=backend.config -reconfigure
+terraform -chdir=infra/demo fmt && terraform -chdir=infra/demo validate
+terraform -chdir=infra/demo apply -auto-approve
 ```
 
 ## Bedrock Knowledge Base
