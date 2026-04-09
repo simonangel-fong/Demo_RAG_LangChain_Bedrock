@@ -26,15 +26,15 @@ resource "aws_iam_role_policy_attachment" "bedrock_full_access" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonBedrockFullAccess"
 }
 
-# # allow api to invoke lambda main
-# resource "aws_lambda_permission" "permission_api_invoke_lambda_main" {
-#   statement_id  = "AllowExecutionFromAPIGatewayPOSTChatbot"
-#   principal     = "apigateway.amazonaws.com"
-#   action        = "lambda:InvokeFunction"
-#   function_name = aws_lambda_function.chatbot.function_name
+# allow api to invoke lambda main
+resource "aws_lambda_permission" "permission_api_invoke_lambda_main" {
+  statement_id  = "AllowExecutionFromAPIGatewayPOSTChatbot"
+  principal     = "apigateway.amazonaws.com"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.main.function_name
 
-#   source_arn = "${aws_api_gateway_rest_api.app.execution_arn}/*/POST/chatbot"
-# }
+  source_arn = "${aws_api_gateway_rest_api.app.execution_arn}/*/POST/app"
+}
 
 ###############################
 # Lambda function: main

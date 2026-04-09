@@ -68,3 +68,15 @@ variable "bedrock_region" {
   type        = string
   default     = "us-east-1"
 }
+
+##############################
+# API Gateway
+##############################
+##############################
+# AWS API Gateway
+##############################
+variable "apigw_path" {
+  description = "API Gateway path"
+  type        = string
+  default     = "app"
+}
